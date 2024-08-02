@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arc Prabh's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="snowfall"></div>
+    <header>
+        <div class="container">
+            <h1>Arc Prabh</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="path-to-your-resume.pdf" target="_blank" id="resumeNavButton">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Explore my skills and projects.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="skills-container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>R</li>
+                <li>SQL</li>
+                <li>MS-Excel</li>
+                <li>Tableau</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="projects-container">
+            <div class="project">
+                <div class="project-image">
+                    <img src="aqi.png" alt="Project 1 Preview">
+                    <a href="https://public.tableau.com/views/AirQuality_17191275460570/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="view-project-button">View Project</a>
+                </div>
+                <div class="project-info">
+                    <h3>Real time AQI</h3>
+                    <p class="project-description"> An interactive Tableau dashboard analyzing AQI data for various Indian cities, featuring 
+                        options to view average, minimum, and maximum pollution levels. Data was real time and collected 
+                        from various stations across India. Daily Collects and updates the data from data.gov.in(Government 
+                        Of India)</p>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-image">
+                    <img src="airseva.png" alt="Project 2 Preview">
+                    <a href=https://public.tableau.com/views/Airseva_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="view-project-button">View Project</a>
+                </div>
+                <div class="project-info">
+                    <h3>Air seva Analysis</h3>
+                    <p class="project-description">A Tableau dashboard using real time data from data.gov.in(Government Of India) to 
+                        analyze air traffic share year-wise, month-wise along with company wise distribution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 Arc Prabh. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
