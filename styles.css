@@ -252,6 +252,7 @@ nav ul li a:hover {
 }
 
 /* Project Section */
+/* Project Section */
 #projects {
     padding: 40px 20px;
     background-color: #1f1f1f;
@@ -259,40 +260,45 @@ nav ul li a:hover {
 
 .projects-container {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping if there are more items */
+    flex-wrap: wrap;
     gap: 20px; /* Space between project boxes */
-    justify-content: space-between; /* Align items to the edges with space in between */
+    justify-content: space-between;
 }
+
 .project {
     background-color: #333;
     border-radius: 8px;
     overflow: hidden;
-    width: calc(50% - 20px); /* Adjust to fit two items per row */
+    width: calc(50% - 10px); /* Two items per row with gap */
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    position: relative; /* Needed for absolute positioning of button */
-    margin: 10px; /* Space around project containers */
+    position: relative;
+    height: auto; /* Adjust height automatically */
+    animation: fadeIn 0.6s ease-out;
 }
 
-.project-image {
-    position: relative; /* Needed for absolute positioning of the button */
-    overflow: hidden;
-    width: 100%; /* Ensure the container takes full width */
-    height: 200px; /* Fixed height for consistent size */
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
-    display: block;
-    transition: filter 0.3s ease;
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover .project-image img {
     filter: blur(4px); /* Blur effect on hover */
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    transition: filter 0.3s ease;
 }
 
 .view-project-button {
@@ -305,30 +311,54 @@ nav ul li a:hover {
     padding: 10px 20px;
     border-radius: 4px;
     text-decoration: none;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project:hover .view-project-button {
-    opacity: 1; /* Show button on hover */
+    opacity: 1;
     transform: translate(-50%, -50%) scale(1.05);
 }
 
 .project-info {
     padding: 20px;
-    text-align: center; /* Center-align text */
 }
 
 .project-info h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
-    color: #e0e0e0;
 }
 
 .project-info p {
     font-size: 1rem;
-    color: #c0c0c0;
 }
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .project {
+        width: calc(100% - 10px); /* Full width minus gap */
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    #projects {
+        padding: 20px 10px; /* Adjust padding */
+    }
+
+    .project-info {
+        padding: 10px;
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+    }
+}
+
 
 
 /* Responsive Styles */
