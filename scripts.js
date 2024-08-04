@@ -44,4 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
             );
             const maxDistance = 200; // Max distance at which clouds start moving
             if (distance < maxDistance) {
-                const moveFactor = (1 - distance / maxDistance) * 30
+                const moveFactor = (1 - distance / maxDistance) * 30;
+                cloud.style.transform = `translate(${moveFactor}px, ${moveFactor}px)`;
+            } else {
+                cloud.style.transform = 'translate(0, 0)';
+            }
+        });
+    });
+
+    // Dropdown menu functionality
+    const dropdownBtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    if (dropdownBtn && dropdownContent) {
+        dropdownBtn.addEventListener('click', () => {
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', (event) => {
+            if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+    }
+});
