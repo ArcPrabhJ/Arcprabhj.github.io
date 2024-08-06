@@ -11,61 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open('path/to/your/resume.pdf', '_blank');
     });
 
-    // Cloud Animation Effect
-    const cloudContainer = document.querySelector('.clouds');
-    const cloudCount = 20; // Number of clouds to generate
-
-    function createCloud() {
-        const cloud = document.createElement('div');
-        cloud.classList.add('cloud');
-        const size = Math.random() * 150 + 100; // Random size between 100 and 250
-        cloud.style.width = `${size}px`;
-        cloud.style.height = `${size}px`;
-        cloud.style.backgroundImage = `url(images/cloud${Math.floor(Math.random() * 3) + 1}.png)`;
-        cloud.style.top = `${Math.random() * 100}vh`;
-        cloud.style.left = `${Math.random() * 100}vw`;
-        cloud.style.opacity = Math.random() * 0.5 + 0.5; // Random opacity between 0.5 and 1
-        cloud.style.animationDuration = `${Math.random() * 20 + 10}s`; // Random animation duration between 10s and 30s
-
-        cloudContainer.appendChild(cloud);
-    }
-
-    for (let i = 0; i < cloudCount; i++) {
-        createCloud();
-    }
-
-    document.addEventListener('mousemove', (event) => {
-        const clouds = document.querySelectorAll('.cloud');
-        clouds.forEach(cloud => {
-            const cloudRect = cloud.getBoundingClientRect();
-            const distance = Math.sqrt(
-                Math.pow(event.clientX - (cloudRect.left + cloudRect.width / 2), 2) +
-                Math.pow(event.clientY - (cloudRect.top + cloudRect.height / 2), 2)
-            );
-            const maxDistance = 200; // Max distance at which clouds start moving
-            if (distance < maxDistance) {
-                const moveFactor = (1 - distance / maxDistance) * 30;
-                cloud.style.transform = `translate(${moveFactor}px, ${moveFactor}px)`;
-            } else {
-                cloud.style.transform = 'translate(0, 0)';
-            }
-        });
-    });
-
     // Dropdown menu functionality
-    const dropdownBtn = document.querySelector('.dropbtn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-
-    if (dropdownBtn && dropdownContent) {
-        dropdownBtn.addEventListener('click', () => {
-            dropdownContent.classList.toggle('show');
-        });
-
-        // Close dropdown if clicked outside
-        document.addEventListener('click', (event) => {
-            if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
-                dropdownContent.classList.remove('show');
+    function toggleDropdown() {
+        document.getElementById("dropdown-content").classList.toggle("show");
+    }
+    
+    // Add event listener for dropdown button
+    const dropdownButton = document.querySelector('.dropbtn');
+    if (dropdownButton) {
+        dropdownButton.addEventListener('click', toggleDropdown);
+    }else {
+    console.log("Dropdown button not found");
+}
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
             }
-        });
+        }
     }
 });
